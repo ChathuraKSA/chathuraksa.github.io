@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr Chathura Sooriya-Arachchi | Assessment and learning design for the GenAI era</title>
+<meta name="description" content="Assessment and learning experiences for a GenAI-enabled learning culture, where learning design is informed by learning analytics. Dr Chathura Sooriya-Arachchi, University of Westminster.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Palette: ink navy, SDG 4 red, teal, highlight yellow, cool ground. Layout: single scroll, alternating light and dark bands. */
+:root{
+  --ink:#0F1B33; --red:#C5192D; --teal:#0B7A75; --yellow:#FFC93C;
+  --ground:#F6F8FB; --white:#FFFFFF; --muted:#4A5568; --line:#D5DCE6; --body:#2D3748;
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --text:'Source Sans 3',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.55}
+a{color:var(--red)} a:hover{color:var(--ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+h1,h2,h3,h4,p{text-wrap:balance}
+h1,h2,h3,h4{font-family:var(--display);margin:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-weight:700;color:var(--red);letter-spacing:.08em;font-size:14px;text-transform:uppercase}
+.h2{font-weight:800;font-size:40px;line-height:1.08;letter-spacing:-.02em;max-width:800px}
+.lead{font-size:19px;color:var(--body);max-width:720px}
+section{padding:72px 0}
+.stack{display:flex;flex-direction:column;gap:32px}
+.head{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:20px}
+.card{flex:1 1 300px;min-width:0;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.tag{font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--teal)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:6px;border:2px solid var(--ink);background:var(--ink);color:#fff}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn.alt{background:var(--white);color:var(--ink)} .btn.alt:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+header.top{background:var(--white);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding-top:18px;padding-bottom:18px}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em}
+nav{display:flex;flex-wrap:wrap;gap:6px 22px} nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:16px} nav a:hover{color:var(--red)}
+/* hero */
+.hero{background:var(--white);padding:48px 0 56px}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:36px}
+.hero-copy{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.pill{background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px;letter-spacing:.04em;align-self:flex-start}
+h1{font-weight:800;font-size:56px;line-height:1.03;letter-spacing:-.03em}
+h1 mark{background:var(--yellow);color:var(--ink);padding:0 8px}
+.sub{font-size:20px;color:var(--body);max-width:560px}
+.who{font-size:16px;color:var(--muted)}
+.quote{margin:0}.quote blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:25px;line-height:1.25;letter-spacing:-.01em;max-width:580px;color:var(--ink)}
+.dive{flex:1 1 380px;min-width:0;max-width:500px;display:flex;flex-direction:column;gap:12px}
+.dive svg{display:block;width:100%;height:auto;cursor:pointer;border-radius:8px}
+.band{fill:transparent;transition:fill .25s}
+.band.on{fill:rgba(255,201,60,.7)}
+#water{transition:fill .35s}
+.dive-hint{font-size:15px;color:var(--muted)}
+.slider{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700;color:var(--muted)}
+.slider input{flex:1;accent-color:var(--red);height:28px}
+.panel{background:var(--ink);color:#fff;padding:36px 0}
+.panel .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-start}
+.panel .left{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.panel .right{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.panel .depth{font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--yellow)}
+.panel h2{font-weight:800;font-size:32px;line-height:1.1}
+.panel .k{font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--yellow);text-transform:uppercase}
+.panel p{color:#E2E8F0}
+.nav-btns{display:flex;gap:10px;flex-wrap:wrap}
+.nb{font-family:var(--text);font-size:16px;font-weight:700;padding:10px 18px;border-radius:6px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.nb:hover{background:#fff;color:var(--ink)}
+.nb[disabled]{opacity:.45;cursor:default}.nb[disabled]:hover{background:transparent;color:#fff}
+/* background */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--text);font-size:15px;font-weight:700;padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:var(--white);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-left:3px solid var(--ink);margin-left:8px}
+.tl li{position:relative;padding:0 0 22px 28px}
+.tl li::before{content:"";position:absolute;left:-11px;top:6px;width:19px;height:19px;border-radius:50%;background:var(--white);border:4px solid var(--red)}
+.tl li[data-cat="practice"]::before{border-color:var(--teal)}
+.tl li[data-cat="recognition"]::before{border-color:var(--yellow);background:var(--ink)}
+.tl h3{font-size:21px;line-height:1.2}
+.tl .meta{font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.tl li[hidden]{display:none}
+
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.journey>div{position:relative;border-top:3px solid var(--ink);padding:18px 12px 0 0;font-size:15px;line-height:1.3}
+.journey>div::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--red);border:2px solid var(--ground)}
+.journey b{display:block;font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.sdet{border:2px solid var(--ink);border-radius:10px;background:var(--white);border-left:8px solid var(--c)}
+.sdet summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px}
+.sdet summary::-webkit-details-marker{display:none}
+.sdet summary::after{content:"+";margin-left:auto;font-family:var(--display);font-weight:800;font-size:28px;line-height:1;color:var(--c)}
+.sdet[open] summary::after{content:"\2013"}
+.sdet .ico{flex:none;width:40px;height:40px;color:var(--c)}
+.sdet .ico svg{width:100%;height:100%}
+.sdet .stx b{display:block;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+.sdet .stx small{display:block;font-size:15px;color:var(--muted);margin-top:2px}
+.sdet .sbody{padding:0 18px 18px}
+.sdet summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.cred{background:var(--white);border:2px solid var(--ink);border-radius:8px;padding:8px 12px;line-height:1.25}
+.cred b{display:block;font-size:15px}
+.cred small{display:block;font-size:13px;font-weight:600;color:var(--muted)}
+.cred.gold{background:var(--yellow)}
+.cred.gold small{color:var(--ink)}
+.sbody .mini{margin-top:16px}
+
+.journey .sop{display:block;margin-top:4px}
+.journey .lane{grid-column:1 / span 4;border-top:0;padding:14px 0 0;font-size:15px;font-weight:700;color:var(--teal)}
+.journey .lane::before{display:none}
+.journey .lane i{display:block;height:8px;border-radius:4px;background:var(--teal);margin-bottom:8px}
+@media(min-width:701px){.journey>div:nth-child(1){order:5}.journey>div:nth-child(2){order:4}.journey>div:nth-child(3){order:3}.journey>div:nth-child(4){order:2}.journey>div:nth-child(5){order:1}}
+.stiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stile{min-width:0;border:2px solid var(--ink);border-top:8px solid var(--c);border-radius:12px;background:var(--white);color:var(--ink);font:inherit;text-align:left;cursor:pointer;padding:14px 16px;display:flex;flex-direction:column;gap:10px;transition:background .2s}
+.stile .ico{width:38px;height:38px;color:var(--ink)}
+.stile .ico svg{width:100%;height:100%}
+.stile .stx b{display:block;font-family:var(--display);font-weight:800;font-size:19px;line-height:1.15}
+.stile .stx small{display:block;font-size:15px;color:var(--muted);margin-top:3px}
+.stile:hover{background:#FFF6D6}
+.stile.on{background:var(--yellow)}
+.stile.on .stx small{color:var(--ink)}
+.stile:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.spanels{border:2px solid var(--ink);border-radius:12px;background:var(--white);padding:22px}
+.spanel[hidden]{display:none}
+.spanel .cons{margin:0 0 12px;max-width:820px}
+.spanel .cons a{color:var(--red);font-weight:700}
+.spanel .mini{margin-top:16px}
+@media(max-width:700px){.stiles{grid-template-columns:1fr 1fr}.journey .lane{grid-column:auto;padding:4px 0 0 18px;border-left:3px solid var(--teal)}.journey .lane i{display:none}}
+
+.routes{max-width:820px}
+.mount{display:block;width:100%;height:auto}
+.mount .trail{stroke-width:4;stroke-dasharray:3 9;opacity:.55;transition:all .25s}
+.mount .trail.on{stroke-width:7;stroke-dasharray:none;opacity:1}
+.rbtns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+.route{min-width:0;border:2px solid var(--ink);border-bottom:8px solid var(--c);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;cursor:pointer;padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.route .n{font-family:var(--display);font-weight:800;font-size:20px;line-height:1;width:34px;height:34px;border-radius:50%;background:var(--c);color:var(--t,var(--ink));display:flex;align-items:center;justify-content:center}
+.route b{font-family:var(--display);font-weight:800;font-size:17px;line-height:1.15}
+.route.on{background:var(--yellow)}
+.route:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.rpanels{max-width:820px;border:2px solid var(--ink);border-radius:12px;background:var(--white);padding:20px}
+.rpanel[hidden]{display:none}
+.rpanel p{margin:0 0 14px}
+@media(max-width:560px){.route b{font-size:12px}.route{padding:10px 3px}.rbtns{gap:8px}}
+
+.bridge{border:2px solid var(--ink);border-radius:12px;background:var(--ground);padding:26px;display:flex;flex-direction:column;gap:14px}
+.bsvg{display:block;width:100%;height:auto;border-radius:8px;background:#EAF3F6}
+.bsvg .pl .pd,.bsvg .pl .pp{transition:all .3s}
+.bsvg .pl .pd{fill-opacity:0;stroke:#0F1B33;stroke-opacity:.45;stroke-width:2;stroke-dasharray:7 7}
+.bsvg .pl .pp{fill:#7C93A8;opacity:0}
+.bsvg .pl.on .pd{fill-opacity:1;stroke-opacity:1;stroke-dasharray:none;stroke-width:2.5}
+.bsvg .pl.on .pp{opacity:1}
+.bsvg .pl.act .pd{fill:#FFC93C !important;stroke:#0F1B33}
+.banks{display:flex;justify-content:space-between;font-family:var(--display);font-weight:800;font-size:17px;margin-top:-6px}
+.btabs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.btab{min-width:0;border:2px solid var(--ink);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;cursor:pointer;padding:10px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+.btab i{font-style:normal;font-family:var(--display);font-weight:800;font-size:16px;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center}
+.btab b{font-family:var(--display);font-weight:800;font-size:15px;line-height:1.15}
+.btab:hover{background:#FFF6D6}
+.btab.on{background:var(--yellow)}
+.btab:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.bpanel{border:2px solid var(--ink);border-radius:10px;background:var(--white);padding:18px 20px;min-height:120px}
+.bpanel h4{font-family:var(--display);font-weight:800;font-size:21px;margin:0 0 6px}
+.bpanel p{margin:0;max-width:760px}
+.bpanel .rq{display:block;margin-top:8px;font-size:15px;color:var(--muted)}
+@media(max-width:700px){.btabs{grid-template-columns:1fr 1fr}.btab{flex-direction:row;justify-content:flex-start;text-align:left}.banks{font-size:14px}.bridge{padding:18px}}
+.stats{display:flex;flex-wrap:wrap;gap:18px 40px}
+.stats .grp{flex:1 1 320px;min-width:0}
+.stats .cap{display:block;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.mini{display:flex;gap:10px}
+.mini>div{flex:1 1 0;min-width:0;background:var(--ink);color:#fff;border-radius:10px;padding:14px;font-size:14px;line-height:1.3}
+.mini b{display:block;font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--yellow)}
+button.badge{font-family:inherit;color:var(--ink);cursor:pointer;text-align:left}
+button.badge small{display:none}
+button.badge[aria-expanded="true"] small{display:block}
+@media(max-width:700px){.sgrid{grid-template-columns:1fr}.journey{grid-template-columns:1fr;gap:0}.journey>div{border-top:0;border-left:3px solid var(--ink);padding:0 0 14px 18px}.journey>div::before{top:2px;left:-8px}.mini{flex-wrap:wrap}.mini>div{flex:1 1 120px}}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{background:var(--white);border:2px solid var(--ink);border-radius:8px;padding:10px 14px;font-weight:700;font-size:15px;line-height:1.25}
+.badge small{display:block;font-weight:600;color:var(--muted);font-size:13px}
+.badge.gold{background:var(--yellow)}
+.badge.gold small{color:var(--ink)}
+.counter{flex:1 1 200px;min-width:0;background:var(--ink);color:#fff;border-radius:10px;padding:22px}
+.counter b{display:block;font-family:var(--display);font-weight:800;font-size:46px;line-height:1.05;color:var(--yellow)}
+.scard{flex:1 1 480px;min-width:0;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.scard h3{font-size:24px}
+.entries{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.rlinks{display:flex;flex-wrap:wrap;gap:6px 20px;font-weight:700;font-size:16px;margin-top:2px}
+.entries .yr{display:block;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.feeds{font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.strand{flex:1 1 240px;min-width:0;border:2px solid var(--ink);border-radius:10px;padding:20px;background:var(--white);display:flex;flex-direction:column;gap:8px}
+.strand h3{font-size:22px}
+.strand .feeds{font-size:15px;color:var(--muted)}
+/* approach */
+.e{flex:1 1 300px;min-width:0;border-radius:10px;padding:26px;color:#fff;display:flex;flex-direction:column;gap:10px}
+.e h3{font-weight:800;font-size:30px;line-height:1.05}
+.e .n{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.08em}
+.ab{background:var(--ground);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.ab-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
+.tab{font-family:var(--text);font-size:16px;font-weight:700;padding:10px 20px;border-radius:6px;cursor:pointer;border:2px solid var(--ink);background:var(--white);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);color:#fff}
+.logrow{display:flex;flex-wrap:wrap;gap:12px 24px;padding:16px 0;border-top:1px solid var(--line)}
+.logrow .n{flex:0 0 24px;font-family:var(--display);font-weight:800}
+.logrow .c{flex:1 1 170px;min-width:0}
+.logrow .l{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.lead3{border:2px solid var(--ink);border-radius:10px;padding:20px;flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.lead3 .t{font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+.lead3 .h{font-family:var(--display);font-weight:800;font-size:22px}
+.lead3.dark{background:var(--ink);color:#fff}.lead3.dark .t{color:var(--yellow)}
+/* module evidence */
+.stat{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:2px;padding:4px 0}
+.stat b{font-family:var(--display);font-weight:800;font-size:44px;line-height:1.05;color:var(--yellow)}
+.stat span{font-size:15px;color:#E2E8F0}
+/* dark section helper */
+.dark-band{background:var(--ink);color:#fff}
+.dark-band .eyebrow{color:var(--yellow)}
+.dark-band .lead{color:#E2E8F0}
+/* writing */
+.piece{flex:1 1 440px;min-width:0;background:var(--white);border:1px solid var(--line);border-top:6px solid var(--red);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.piece h3{font-size:25px;line-height:1.15}
+.piece .src{font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--teal);text-transform:uppercase}
+.steps{display:flex;flex-wrap:wrap;gap:14px}
+.step{flex:1 1 200px;min-width:0;background:var(--white);border:2px solid var(--ink);border-radius:10px;padding:16px;font-size:16px}
+.step b{display:block;font-family:var(--display);font-size:18px;margin-bottom:2px}
+/* sdg */
+.sdgcard{flex:1 1 480px;min-width:0;background:var(--white);color:var(--ink);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.sdgcard .code{background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:22px;padding:4px 12px;border-radius:6px}
+.sdgcard .t{font-family:var(--display);font-weight:700;font-size:22px}
+
+#sdgPanel{flex:none}
+.sdgmap{display:flex;gap:14px;align-items:flex-end}
+.sdgtile{flex:1 1 0;min-width:0;margin-top:calc(var(--step)*0px);padding:18px 10px 16px;padding-top:calc(18px + var(--step)*22px);border:2px solid rgba(255,255,255,.25);border-radius:12px;background:rgba(255,255,255,.06);color:#fff;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;transition:background .2s,color .2s,border-color .2s}
+.sdgtile svg{width:64px;height:64px}
+.sdgtile .c{font-family:var(--display);font-weight:800;font-size:24px;line-height:1}
+.sdgtile .w{font-size:15px;color:#E2E8F0}
+.sdgtile:hover{border-color:var(--yellow)}
+.sdgtile.on{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.sdgtile.on .w{color:var(--ink);font-weight:700}
+.sdgtile:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(max-width:640px){.sdgmap{display:grid;grid-template-columns:1fr 1fr}.sdgtile{padding-top:18px}.sdgtile svg{width:52px;height:52px}}
+.sdgcard .ind{font-size:15px;color:var(--muted)}
+.logexample{overflow-x:auto}
+.logexample .tbl{min-width:640px;display:flex;border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+.logexample .tbl div{background:var(--ink);color:#fff;font-weight:700;padding:10px 12px;border-left:1px solid #fff;flex:1 1 0;min-width:0}
+.logexample .tbl div:first-child{flex:0 0 52px;border-left:0}
+footer.bottom{background:var(--ink);color:#CBD5E0}
+footer.bottom .wrap{padding-top:24px;padding-bottom:24px;font-size:15px;display:flex;flex-direction:column;gap:16px}
+footer.bottom nav a{color:#E2E8F0;font-size:15px}
+footer.bottom nav a:hover{color:var(--yellow)}
+footer.bottom .fline{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+footer.bottom .sep{color:var(--yellow)}
+@media(max-width:560px){footer.bottom .sep{display:none}footer.bottom .fline{flex-direction:column}}
+@media (max-width:640px){h1{font-size:40px}.h2{font-size:32px}section{padding:56px 0}.panel h2{font-size:26px}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+<div class="wrap">
+<div class="brand">Dr Chathura Sooriya-Arachchi</div>
+<nav aria-label="Sections">
+<a href="#story">Research</a><a href="#approach">Approach</a><a href="#writing">Engagement</a><a href="#sdg4">SDG 4</a><a href="#background">Background</a><a href="#connect">Connect</a>
+</nav>
+</div>
+</header>
+
+<!-- Hero with the iceberg dive -->
+<main>
+<div class="hero">
+<div class="wrap">
+<div class="hero-copy">
+<span class="pill">Learning analytics × Learning design × Human-centred GenAI</span>
+<h1>Making learning <mark>visible</mark> when AI can do the work.</h1>
+<figure class="quote"><blockquote>“Let’s stop asking only whether students used AI. Let’s ask what they learned, and how we can support them.”</blockquote></figure>
+<p class="who">Dr Chathura Sooriya-Arachchi, SFHEA · Lecturer in Computer Science, University of Westminster</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn" href="#panel">Dive in below</a>
+<a class="btn alt" href="#approach">See the approach</a>
+</div>
+</div>
+
+<div class="dive">
+<svg id="berg" viewBox="0 0 400 560" role="img" aria-label="An iceberg you can dive into. Above the waterline is a single grade, 68. Below it are six layers of hidden learning challenges. Select a layer, or use the slider, to read about it.">
+<defs>
+<linearGradient id="iceg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7FCFD"/><stop offset="1" stop-color="#DCEEF4"/></linearGradient>
+<clipPath id="below"><polygon points="105,150 295,150 330,176 360,212 350,250 366,300 344,346 318,392 296,432 262,468 232,500 206,486 182,512 150,478 120,456 92,420 64,380 70,336 44,292 58,244 40,206 74,178"/></clipPath>
+</defs>
+<rect x="0" y="0" width="400" height="150" fill="#EAF3F6"/>
+<rect id="water" x="0" y="150" width="400" height="410" fill="#BFE0E6"/>
+<line x1="0" y1="150" x2="400" y2="150" stroke="#0F1B33" stroke-width="2"/>
+<polygon points="122,150 136,120 148,98 161,106 175,66 189,42 200,28 212,52 223,46 237,82 249,70 263,108 278,150" fill="#FFFFFF"/>
+<polygon points="200,28 212,52 223,46 237,82 249,70 263,108 278,150 214,150 206,96" fill="#DCEBF2"/>
+<polygon points="175,66 189,42 200,28 206,96 190,150 160,150 168,112 161,106 148,98 175,66" fill="#F4FAFC"/>
+<g fill="none" stroke="#0F1B33" stroke-opacity=".22" stroke-width="1.2" stroke-linejoin="round"><path d="M200 28L204 80"/><path d="M175 66L186 100"/><path d="M237 82L228 120"/></g>
+<polygon points="122,150 136,120 148,98 161,106 175,66 189,42 200,28 212,52 223,46 237,82 249,70 263,108 278,150" fill="none" stroke="#0F1B33" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="105,150 295,150 330,176 360,212 350,250 366,300 344,346 318,392 296,432 262,468 232,500 206,486 182,512 150,478 120,456 92,420 64,380 70,336 44,292 58,244 40,206 74,178" fill="url(#iceg)"/>
+<g clip-path="url(#below)">
+<polygon points="295,150 330,176 360,212 350,250 366,300 344,346 318,392 296,432 262,468 232,500 250,280" fill="#BFDDE8" fill-opacity=".45"/>
+<polygon points="105,150 150,300 120,456 92,420 64,380 70,336 44,292 58,244 40,206 74,178" fill="#FFFFFF" fill-opacity=".5"/>
+<rect class="band" data-i="1" x="0" y="150" width="400" height="56.7"/>
+<rect class="band" data-i="2" x="0" y="206.7" width="400" height="56.7"/>
+<rect class="band" data-i="3" x="0" y="263.4" width="400" height="56.7"/>
+<rect class="band" data-i="4" x="0" y="320.1" width="400" height="56.7"/>
+<rect class="band" data-i="5" x="0" y="376.8" width="400" height="56.7"/>
+<rect class="band" data-i="6" x="0" y="433.5" width="400" height="56.7"/>
+</g>
+<polygon points="105,150 295,150 330,176 360,212 350,250 366,300 344,346 318,392 296,432 262,468 232,500 206,486 182,512 150,478 120,456 92,420 64,380 70,336 44,292 58,244 40,206 74,178" fill="none" stroke="#0F1B33" stroke-width="2.5" stroke-linejoin="round"/>
+<g fill="none" stroke="#0F1B33" stroke-opacity=".16" stroke-width="1.2" stroke-linejoin="round"><path d="M105 150L150 300L120 456"/><path d="M295 150L250 280L232 500"/><path d="M250 280L296 432"/><path d="M150 300L182 512"/></g>
+<g stroke="#0F1B33" stroke-opacity=".18" stroke-width="1">
+<line x1="40" y1="206.7" x2="360" y2="206.7"/><line x1="40" y1="263.4" x2="360" y2="263.4"/><line x1="40" y1="320.1" x2="360" y2="320.1"/><line x1="40" y1="376.8" x2="360" y2="376.8"/><line x1="40" y1="433.5" x2="360" y2="433.5"/>
+</g>
+<text x="200" y="130" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="34" fill="#C5192D">68</text>
+<text x="392" y="62" text-anchor="end" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="14" fill="#0F1B33">What the marker sees</text>
+<g font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600" fill="#0F1B33" text-anchor="middle">
+<text x="200" y="184">Competency misalignment</text>
+<text x="200" y="240">Academic integrity</text>
+<text x="200" y="297">Assessment validity</text>
+<text x="200" y="354">Invisible learning processes</text>
+<text x="200" y="411">Ethical, data and policy gaps</text>
+<text x="200" y="460" font-size="13">Educator capability</text>
+</g>
+<circle id="diver" cx="376" cy="110" r="9" fill="#FFC93C" stroke="#0F1B33" stroke-width="2.5"/>
+</svg>
+<div class="slider">
+<span>Surface</span>
+<input id="depth" type="range" min="0" max="6" value="0" step="1" aria-label="Dive depth, 0 is the surface and 6 is the deepest layer">
+<span>Deepest</span>
+</div>
+<p class="dive-hint">Tap a layer, drag the slider, or use the buttons below.</p>
+</div>
+</div>
+</div>
+
+<div class="panel" id="panel">
+<div class="wrap">
+<div class="left" aria-live="polite">
+<span class="depth" id="pDepth">AT THE SURFACE</span>
+<h2 id="pTitle">The grade</h2>
+<p id="pChallenge"></p>
+</div>
+<div class="right" aria-live="polite">
+<div><span class="k">What I do about it</span><p id="pResponse" style="margin-top:4px"></p></div>
+<div class="nav-btns">
+<button type="button" class="nb" id="up">Back up</button>
+<button type="button" class="nb" id="down">Go deeper</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Research story -->
+<section id="story" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">Research</span>
+<h2 class="h2">From adopting analytics to acting on them, and now to assessing in the age of AI.</h2>
+</div>
+<div class="row">
+<div class="card"><span class="tag">PhD · Queen Mary University of London</span><h3 style="font-size:24px;line-height:1.15">The adoption to actionability gap</h3><p style="color:var(--body)">My PhD asked why teachers adopt learning analytics far more often than they act on them. It produced a three-layer conceptual framework, four learner archetypes and a validated toolkit.</p></div>
+<div class="card"><span class="tag">Toolkit · LAK 2025</span><h3 style="font-size:24px;line-height:1.15">A planner teachers can use</h3><p style="color:var(--body)">I built the Learning Activity Planner to map analytics markers to teaching decisions and learning design activity types, so educators can act on what the data shows.</p></div>
+<div class="card"><span class="tag">Now · GenAI in assessment</span><h3 style="font-size:24px;line-height:1.15">When AI can simulate learning</h3><p style="color:var(--body)">I now ask how we evaluate competency when AI can simulate learning. The framework is tested in a first-year module and published in the LAK 2026 workshop proceedings.</p></div>
+</div>
+<div class="bridge">
+<div class="bhead"><h3 style="font-size:26px;line-height:1.15">Why learning analytics rarely change teaching.</h3><p style="color:var(--body);max-width:720px">Dashboards are widely adopted, yet acting on them is far less common. Build the bridge one layer at a time to see what closes the gap.</p></div>
+<svg class="bsvg" viewBox="0 0 800 300" role="img" aria-label="A bridge between analytics on the left bank and changed teaching practice on the right bank. Three planks, one per framework layer, close the gap.">
+<rect x="0" y="205" width="800" height="95" fill="#BFE0E6"/>
+<g stroke="#fff" stroke-opacity=".7" stroke-width="2" fill="none" stroke-linecap="round"><path d="M200 232q20-8 40 0t40 0"/><path d="M470 250q20-8 40 0t40 0"/><path d="M330 275q20-8 40 0t40 0"/></g>
+<polygon points="0,140 170,140 170,205 150,300 0,300" fill="#C9D8E8"/>
+<polygon points="630,140 800,140 800,300 650,300 650,205" fill="#C9D8E8"/>
+<g fill="#0B7A75"><rect x="34" y="104" width="22" height="36" rx="2"/><rect x="66" y="82" width="22" height="58" rx="2"/><rect x="98" y="60" width="22" height="80" rx="2"/></g>
+<g fill="none" stroke="#0F1B33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="672" cy="86" r="9" fill="#FFC93C"/><path d="M672 95v28M672 123l-9 17M672 123l9 17M672 104l24-10"/>
+<rect x="702" y="52" width="88" height="62" rx="4" fill="#fff"/><path d="M714 114l-5 26M778 114l5 26"/>
+<circle cx="722" cy="72" r="6"/><circle cx="746" cy="72" r="6"/><circle cx="770" cy="72" r="6"/><path d="M728 72h12M752 72h12"/>
+<path d="M716 96h26M752 96h22" stroke-width="2.5"/>
+</g>
+<g id="planks">
+<g class="pl" data-i="0"><rect class="pp" x="204" y="150" width="14" height="70"/><rect class="pd" x="170" y="130" width="153" height="16" rx="3" fill="#064B48"/></g>
+<g class="pl" data-i="1"><rect class="pp" x="393" y="150" width="14" height="70"/><rect class="pd" x="323" y="130" width="154" height="16" rx="3" fill="#0B7A75"/></g>
+<g class="pl" data-i="2"><rect class="pp" x="582" y="150" width="14" height="70"/><rect class="pd" x="477" y="130" width="153" height="16" rx="3" fill="#5FB3AE"/></g>
+</g>
+<text id="qmark" x="400" y="100" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="64" fill="#C5192D">?</text>
+<path id="cross" d="M190 116H610" fill="none" stroke="#0F1B33" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+<path id="crossh" d="M596 104l16 12-16 12" fill="none" stroke="#0F1B33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="banks"><span>Analytics adopted</span><span>Teaching practice changed</span></div>
+<div class="btabs" role="tablist" aria-label="Bridge layers">
+<button class="btab on" data-n="0" role="tab" aria-selected="true"><b>The gap</b></button>
+<button class="btab" data-n="1" role="tab" aria-selected="false"><i>1</i><b>LA-LD integration</b></button>
+<button class="btab" data-n="2" role="tab" aria-selected="false"><i>2</i><b>Institutional context</b></button>
+<button class="btab" data-n="3" role="tab" aria-selected="false"><i>3</i><b>Learner dynamics</b></button>
+<button class="btab" data-n="4" role="tab" aria-selected="false"><b>The crossing</b></button>
+</div>
+<div class="bpanel" id="bpanel" role="tabpanel" aria-live="polite"></div>
+</div>
+<div style="background:var(--yellow);border-radius:10px;padding:28px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 40px">
+<div style="flex:1 1 360px;min-width:0"><div style="font-weight:700;font-size:14px;letter-spacing:.08em">THE QUESTION BEHIND THE WORK</div><p style="margin-top:6px;font-family:var(--display);font-weight:700;font-size:28px;line-height:1.15">How do we evaluate student competencies when AI can simulate learning?</p></div>
+<div style="flex:1 1 300px;min-width:0;font-size:16px"><p style="margin-bottom:8px">Two aims guide it: a framework for assessing competency when students learn with GenAI, and practical guidelines for educators who want to use GenAI without weakening how competency is judged.</p><a href="https://ceur-ws.org/Vol-4268/AILIT-paper1.pdf" style="color:var(--ink);font-weight:700">Read the workshop paper (PDF)</a></div>
+</div>
+</div>
+</section>
+
+
+<!-- Approach -->
+<section id="approach">
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">The approach</span>
+<h2 class="h2">Equip, Evidence, Evaluate.</h2>
+<p class="lead">Detecting AI use is an arms race. Making thinking visible is a design choice. Three moves turn that choice into assessment.</p>
+</div>
+<div class="row">
+<div class="e" style="background:var(--red)"><span class="n">E1</span><h3>Equip</h3><p>Prepare students to use GenAI critically before they are assessed. Weekly worksheets build the habit, starting with structured prompting.</p></div>
+<div class="e" style="background:var(--teal)"><span class="n">E2</span><h3>Evidence</h3><p>Make the process visible with an AI-use log, staged checkpoints, and a contribution record or live verification for group work.</p></div>
+<div class="e" style="background:var(--ink)"><span class="n" style="color:var(--yellow)">E3</span><h3>Evaluate</h3><p>Judge competency from the process as well as the product, using criteria that stay manageable for markers.</p></div>
+</div>
+
+<div class="ab">
+<div class="ab-head">
+<div><div class="eyebrow">Try it · same mark, different learning</div><h3 style="margin-top:4px;font-weight:700;font-size:26px;line-height:1.15">Two students submit work worth 68. Open their AI-use logs.</h3></div>
+<div style="display:flex;gap:10px"><button type="button" class="tab" id="btnA" aria-pressed="true">Student A</button><button type="button" class="tab" id="btnB" aria-pressed="false">Student B</button></div>
+</div>
+<div id="logA">
+<div style="font-weight:700;margin-bottom:4px">Student A accepted the output</div>
+<div class="logrow"><div class="n" style="color:var(--red)">1</div><div class="c"><div class="l">Prompt I used</div>Make it better</div><div class="c"><div class="l">Technique</div>None stated</div><div class="c"><div class="l">How I used it</div>Used it</div><div class="c"><div class="l">What I changed or rejected</div>Nothing</div></div>
+<div class="logrow"><div class="n" style="color:var(--red)">2</div><div class="c"><div class="l">Prompt I used</div>Check my grammar</div><div class="c"><div class="l">Technique</div>None stated</div><div class="c"><div class="l">How I used it</div>Kept most of it</div><div class="c"><div class="l">What I changed or rejected</div>No entry</div></div>
+</div>
+<div id="logB" hidden>
+<div style="font-weight:700;margin-bottom:4px">Student B directed the AI and judged its answers</div>
+<div class="logrow"><div class="n" style="color:var(--teal)">1</div><div class="c"><div class="l">Prompt I used</div>Using RACE: act as a policy analyst to find stakeholder conflicts</div><div class="c"><div class="l">Technique</div>Role + context</div><div class="c"><div class="l">How I used it</div>Restructured my argument</div><div class="c"><div class="l">What I changed or rejected</div>Rejected 3 claims: no evidence</div></div>
+<div class="logrow"><div class="n" style="color:var(--teal)">2</div><div class="c"><div class="l">Prompt I used</div>What are the weaknesses in this analysis?</div><div class="c"><div class="l">Technique</div>Self-criticism</div><div class="c"><div class="l">How I used it</div>Added a limitations section</div><div class="c"><div class="l">What I changed or rejected</div>Rewrote my conclusion</div></div>
+</div>
+<p style="font-family:var(--display);font-weight:700;font-size:20px">The grade looks the same. The learning does not.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<h3 style="font-weight:700;font-size:26px;line-height:1.15">Human-led, AI in the loop</h3>
+<p style="color:var(--body);max-width:720px">Bloom's levels show where to target design effort. Knowledge, skills and dispositions show what to evaluate. Together they decide who leads.</p>
+<div class="row" style="gap:16px">
+<div class="lead3"><span class="t">REMEMBER · UNDERSTAND</span><span class="h">AI can lead</span><span>Students check its output against sources.</span></div>
+<div class="lead3"><span class="t">APPLY · ANALYSE</span><span class="h">Human leads, AI in the loop</span><span>Students bring critical synthesis and their own voice.</span></div>
+<div class="lead3 dark"><span class="t">EVALUATE · CREATE</span><span class="h">Human owns</span><span>Students supply live explanation and honest disclosure.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Module evidence -->
+<section class="dark-band">
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">In one module</span>
+<h2 class="h2">What this looked like with a first-year cohort.</h2>
+<p class="lead">The approach was built into Foundations of Professional Computing, formerly Trends in Computer Science, a core first-year module, as two redesigned assessments.</p>
+</div>
+<div class="row" style="gap:20px 40px">
+<div class="stat"><b>477</b><span>students enrolled</span></div>
+<div class="stat"><b>366</b><span>completers with marks on every element</span></div>
+<div class="stat"><b>65.0</b><span>mean mark of completers, the highest in five years</span></div>
+<div class="stat"><b>15</b><span>markers, supported with shared resources and a marking tool</span></div>
+</div>
+<div class="row" style="gap:20px">
+<div style="flex:1 1 360px;min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:24px">Group case analysis</h3><p style="color:#E2E8F0">Built on practical case study scenarios: a podcast-style video analysis, a collaborative LinkedIn article, a supporting written pitch and a workload matrix for individual contribution.</p></div>
+<div style="flex:1 1 360px;min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:8px"><h3 style="font-size:24px">Individual portfolio</h3><p style="color:#E2E8F0">Built on a real job posting: an elevator pitch video practised with AI-based pitch coaching, a live professional portfolio on LinkedIn and GitHub, and a reflective write-up. Employer and careers guests, the Westminster Award Bronze and BCS membership sit alongside it.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Artefacts -->
+<section>
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">Artefacts</span>
+<h2 class="h2">What students actually receive.</h2>
+<p class="lead">Each works in any discipline and with any AI tool. The log captures AI use, the checklist enforces process, the worksheet scaffolds it, and the matrix shows contribution.</p>
+</div>
+<div class="row">
+<div class="card" style="flex-basis:240px"><span class="tag" style="color:var(--red)">AI visibility</span><h3 style="font-size:22px;line-height:1.15">GenAI usage log</h3><p>Prompts, techniques, what students kept or rejected, and why. A graded appendix.</p></div>
+<div class="card" style="flex-basis:240px"><span class="tag" style="color:var(--red)">Scaffolded practice</span><h3 style="font-size:22px;line-height:1.15">Tutorial worksheet</h3><p>Builds the log in real time with structured prompting, so documenting becomes a weekly habit.</p></div>
+<div class="card" style="flex-basis:240px"><span class="tag" style="color:var(--red)">Process accountability</span><h3 style="font-size:22px;line-height:1.15">Submission checklist</h3><p>Students self-verify every required component before they submit.</p></div>
+<div class="card" style="flex-basis:240px"><span class="tag" style="color:var(--red)">Contribution visibility</span><h3 style="font-size:22px;line-height:1.15">Workload matrix</h3><p>Each student records their contribution as a percentage, separating individual from group grade.</p></div>
+</div>
+<div class="card logexample">
+<div style="font-weight:700">The usage log, as students see it</div>
+<div class="tbl"><div>No.</div><div>Prompt I used</div><div>Technique applied</div><div>How I integrated AI suggestions</div><div>What I changed or rejected, and why</div></div>
+</div>
+</div>
+</section>
+
+<!-- Writing and employability -->
+<section id="writing" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">Public engagement</span>
+<h2 class="h2">What my research and my own teaching have taught me, shared beyond the classroom.</h2>
+</div>
+<div class="row" style="gap:24px">
+<article class="piece">
+<span class="src">Times Higher Education</span>
+<h3>We promise our graduates will be employable. Are we keeping that promise?</h3>
+<p style="color:var(--body)">How I rebuilt a first-year computing module, Foundations of Professional Computing, so employability sits inside marked, credit-bearing work across 12 structured weeks.</p>
+<a href="https://www.timeshighereducation.com/campus/we-promise-our-graduates-will-be-employable-are-we-keeping-promise" style="font-weight:700">Read it in Times Higher Education</a>
+</article>
+<article class="piece">
+<span class="src">Times Higher Education</span>
+<h3>Are your students disengaging, or is it their personality type?</h3>
+<p style="color:var(--body)">Why students who look disengaged may simply learn differently, and how our teaching can meet them where they are.</p>
+<a href="https://www.timeshighereducation.com/campus/are-your-students-disengaging-or-it-their-personality-type" style="font-weight:700">Read it in Times Higher Education</a>
+</article>
+</div>
+<p style="font-size:16px"><a href="https://www.timeshighereducation.com/campus/authors/chathura-sooriyaarachchi" style="font-weight:700">All my articles</a></p>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-weight:700;font-size:22px;line-height:1.15">Talks and competitions</h3>
+<div class="steps">
+<div class="step"><b>2023</b>Research spotlight, London Hopper Colloquium.</div>
+<div class="step"><b>2021</b>Finalist, Queen Mary 3-Minute Thesis.<br><a href="https://www.youtube.com/watch?v=dvoIoyg406U" style="color:var(--red);font-weight:700">Watch the talk</a></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SDG 4 -->
+<section id="sdg4" class="dark-band">
+<div class="wrap stack">
+<div class="head">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px"><span style="background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:34px;line-height:1;padding:10px 16px;border-radius:6px">4</span><span class="eyebrow">Sustainable Development Goal 4</span></div>
+<h2 class="h2">Quality education means learning that is real, not only recorded.</h2>
+<p class="lead">SDG 4 asks for inclusive, equitable, quality education and lifelong learning for all. These are the targets this work speaks to most directly.</p>
+</div>
+<div class="sdgmap" role="tablist" aria-label="SDG 4 targets">
+<button class="sdgtile on" data-k="4.3" role="tab" aria-selected="true" style="--step:0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h20a6 6 0 0 1 6 6v32a6 6 0 0 0-6-6H6z"/><path d="M58 14H38a6 6 0 0 0-6 6v32a6 6 0 0 1 6-6h20z"/><path d="M32 8v6"/></svg><span class="c">4.3</span><span class="w">Access</span></button>
+<button class="sdgtile" data-k="4.5" role="tab" aria-selected="false" style="--step:1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 10v44M20 54h24M12 20h40"/><circle cx="32" cy="10" r="3"/><path d="M12 20L4 38h16zM52 20l-8 18h16z"/></svg><span class="c">4.5</span><span class="w">Fairness</span></button>
+<button class="sdgtile" data-k="4.c" role="tab" aria-selected="false" style="--step:2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="52" height="30" rx="3"/><path d="M14 18h22M14 26h14M32 38v16M20 54h24"/><path d="M46 20l4 4 6-8"/></svg><span class="c">4.c</span><span class="w">Teachers</span></button>
+<button class="sdgtile" data-k="4.4" role="tab" aria-selected="false" style="--step:3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="22" width="52" height="30" rx="4"/><path d="M22 22v-6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6M6 36h52"/><circle cx="32" cy="36" r="3"/></svg><span class="c">4.4</span><span class="w">Work</span></button>
+</div>
+<div class="sdgcard" id="sdgPanel" role="tabpanel" aria-live="polite"></div>
+<p style="font-size:15px;color:#CBD5E0;max-width:820px">This work operates at module and institutional level. It informs practice against these targets but does not itself measure the national indicators shown.</p>
+</div>
+</section>
+
+<!-- Background -->
+<section id="background">
+<div class="wrap stack">
+<div class="head">
+<span class="eyebrow">Background</span>
+<h2 class="h2">Across higher education, industry and professional training.</h2>
+<p class="lead">More than fifteen years, in four strands. Choose a strand for the detail.</p>
+</div>
+<div class="journey">
+<div><b>2026</b>PhD and SFHEA</div>
+<div><b>2024</b>Lecturer, University of Westminster</div>
+<div><b>2020</b>Teaching fellow, Queen Mary University of London</div>
+<div><b>2014</b>Lecturer, then Senior Lecturer, Sri Lanka<span class="sop">Sopwin Creative Spectrum: training, coaching and consulting</span></div>
+<div><b>2010</b>Software engineer, IFS</div>
+</div>
+<div class="stiles" role="tablist" aria-label="Background strands"><button class="stile on" data-k="r" role="tab" aria-selected="true" style="--c:var(--red)"><span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7"/></svg></span><span class="stx"><b>Research</b><small>PhD, LAK papers, LAK27 committee</small></span></button><button class="stile" data-k="s" role="tab" aria-selected="false" style="--c:var(--teal)"><span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="13" r="7"/><path d="M11 19l-3 8 8-4 8 4-3-8"/></svg></span><span class="stx"><b>Scholarship</b><small>SFHEA, CETI Advocate, GRADE lead</small></span></button><button class="stile" data-k="t" role="tab" aria-selected="false" style="--c:var(--ink)"><span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="26" height="16" rx="2"/><path d="M16 21v6M10 27h12M9 11h9M9 15h6"/></svg></span><span class="stx"><b>Teaching and supervision</b><small>Software engineer to module leader</small></span></button><button class="stile" data-k="c" role="tab" aria-selected="false" style="--c:var(--yellow)"><span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h22v15H14l-6 6v-6H5z"/></svg></span><span class="stx"><b>Consulting</b><small>Sopwin, EdTech adoption in L&amp;D</small></span></button></div>
+<div class="spanels" id="spanels" role="tabpanel" aria-live="polite"><div class="spanel" data-k="r"><div class="creds"><span class="cred gold"><b>PhD Computer Science</b><small>Queen Mary University of London</small></span><span class="cred"><b>MSc Computer Science</b><small>University of Colombo</small></span><span class="cred"><b>BSc (Hons) Computing</b><small>Staffordshire University affiliate, APIIT</small></span></div><ul class="entries">
+<li><span class="yr">2026–27</span>LAK27 Programme Committee member and peer reviewer</li>
+<li><span class="yr">2026</span>PhD in Computer Science, Queen Mary University of London. Thesis: <a href="https://qmro.qmul.ac.uk/handle/123456789/119796"><em>From Adoption to Actionability: Investigating Learning Analytics Integration in Learning Design for Higher Education Teaching Practice</em></a></li>
+<li><span class="yr">2024–26</span>Papers and talks at LAK24 (Kyoto), LAK25 (Dublin) and LAK26 (Bergen), and at AdvanceHE Teaching and Learning and Improving University Teaching 2025</li>
+</ul><p class="rlinks"><a href="https://orcid.org/0009-0003-2233-5792">Full list of research (ORCID)</a></p></div><div class="spanel" data-k="s" hidden><div class="creds"><span class="cred gold"><b>SFHEA</b><small>Senior Fellow, Advance HE</small></span></div><ul class="entries">
+<li><span class="yr">2026–27</span>APD Advocate and AI Champion for Computer Science and Engineering, Centre for Excellence in Teaching and Innovation (CETI), University of Westminster</li>
+<li><span class="yr">2026–27</span>Founding Lead, G.R.A.D.E. Westminster Learning Community (GenAI-Ready Assessment Design for Educators)</li>
+<li><span class="yr">2026</span>Senior Fellow of the Higher Education Academy, through Westminster’s PRESTige route</li>
+</ul></div><div class="spanel" data-k="t" hidden><ul class="entries">
+<li><span class="yr">2025–27</span>Module Leader, Foundations of Professional Computing, University of Westminster</li>
+<li><span class="yr">2024 – now</span>Lecturer, University of Westminster, supervising undergraduate and masters projects and serving as personal tutor</li>
+<li><span class="yr">2020–24</span>Teaching Fellow and demonstrator at Queen Mary, Lecturer at QA Higher Education, and Visiting Lecturer at Westminster</li>
+<li><span class="yr">2020</span>Course Leader for the BSc AI and Data Science degree validation, IIT Sri Lanka</li>
+<li><span class="yr">2014–20</span>Lecturer, then Senior Lecturer, in computing at three colleges in Sri Lanka</li>
+<li><span class="yr">2010–14</span>Software Engineer at IFS R&amp;D, building enterprise ERP software</li>
+</ul></div><div class="spanel" data-k="c" hidden><div class="creds"><span class="cred"><b>City &amp; Guilds Trainer</b><small>Teaching, Training and Assessing</small></span><span class="cred"><b>Accredited Practitioner Coach</b><small>IAPC&amp;M</small></span></div><p class="cons"><strong>Sopwin Creative Spectrum.</strong> My training, coaching and consultancy interests focus on research-informed EdTech adoption and integration in Learning and Development (L&amp;D), particularly institutional readiness, Generative AI integration, and translating technology adoption into actionable teaching and learning practice.</p><p class="cons">My wider work spans creative decision-making, problem-solving, professional development and personal growth, themes also reflected in my book <a href="https://www.amazon.com/Design-YOU-Toolkit-Average-ICONIC-ebook/dp/B09NRY78SV/ref=sr_1_1?keywords=Design+YOU:+Toolkit+to+build+YOUR+Brand+from+Average+to+ICONIC&qid=1653842444&s=digital-text&sr=1-1"><em>Design YOU: Toolkit to Build YOUR Brand from Average to ICONIC</em></a>.</p><div class="mini"><div><b>500+</b>sessions delivered</div><div><b>1,000+</b>hours of training and coaching</div><div><b>14,000+</b>people reached through Sopwin</div></div></div></div>
+</div>
+</section>
+
+<!-- Connect -->
+<section id="connect">
+<div class="wrap stack">
+<div class="head"><span class="eyebrow">Connect</span><h2 class="h2">Three routes, one summit.</h2><p class="lead">Choose the route that fits you.</p></div>
+<div class="routes">
+<svg class="mount" viewBox="0 0 800 330" role="img" aria-label="Three routes up a mountain, one for researchers, one for educators and institutions, one for organisations, meeting at a summit flag">
+<polygon points="20,320 230,170 310,215 400,70 490,195 570,150 780,320" fill="#DCE6F0"/>
+<polygon points="400,70 372,122 392,112 410,128 432,114" fill="#fff"/>
+<polygon points="20,320 230,170 270,200 150,320" fill="#C9D8E8"/>
+<g fill="none" stroke-linecap="round">
+<path class="trail" data-k="r" d="M130 312 C 190 245 330 250 362 165 S 394 100 398 78" stroke="#064B48"/>
+<path class="trail" data-k="e" d="M400 318 C 372 250 440 190 402 78" stroke="#0B7A75"/>
+<path class="trail" data-k="o" d="M670 312 C 610 245 470 250 438 165 S 406 100 402 78" stroke="#5FB3AE"/>
+</g>
+<g><circle cx="130" cy="312" r="11" fill="#064B48"/><circle cx="400" cy="318" r="11" fill="#0B7A75"/><circle cx="670" cy="312" r="11" fill="#5FB3AE"/></g>
+<path d="M400 78V34" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><path d="M400 34l30 10-30 10z" fill="var(--red)"/>
+</svg>
+<div class="rbtns" role="tablist" aria-label="Routes"><button class="route on" data-k="r" role="tab" aria-selected="true" style="--c:#064B48;--t:#fff"><span class="n">1</span><b>Researchers</b></button><button class="route" data-k="e" role="tab" aria-selected="false" style="--c:#0B7A75;--t:#fff"><span class="n">2</span><b>Educators and institutions</b></button><button class="route" data-k="o" role="tab" aria-selected="false" style="--c:#5FB3AE;--t:#0F1B33"><span class="n">3</span><b>Organisations</b></button></div>
+</div>
+<div class="rpanels" role="tabpanel" aria-live="polite"><div class="rpanel" data-k="r"><p>Working on learning analytics, learning design or GenAI in assessment? I am always glad to talk about collaborating on research, papers and projects.</p><a class="btn alt" href="mailto:c.sooriyaarachchi1@westminster.ac.uk?subject=Research%20collaboration">Get in touch to collaborate</a></div><div class="rpanel" data-k="e" hidden><p>Workshops that help teaching academics redesign one assessment for their own module, and the GRADE learning community at Westminster.</p><a class="btn alt" href="#approach">See the approach</a></div><div class="rpanel" data-k="o" hidden><p>Training, masterclasses and coaching through Sopwin Creative Spectrum.</p><a class="btn alt" href="#background">See the consulting work</a></div></div>
+<div style="background:var(--ink);color:#fff;border-radius:10px;padding:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+<div style="flex:1 1 320px;min-width:0"><div style="font-family:var(--display);font-weight:800;font-size:24px">Dr Chathura Sooriya-Arachchi</div><div style="color:#E2E8F0">Lecturer in Computer Science, University of Westminster</div></div>
+<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:4px"><span>Email: c.sooriyaarachchi1@westminster.ac.uk</span><a href="https://www.linkedin.com/in/chathuraksa/" aria-label="LinkedIn profile" style="color:var(--yellow);font-weight:700;display:inline-flex;align-items:center;gap:8px"><img src="data:image/png;base64,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" alt="" width="24" height="24" style="height:24px;width:auto;border-radius:4px">chathuraksa</a><a href="https://orcid.org/0009-0003-2233-5792" aria-label="ORCID record" style="color:var(--yellow);font-weight:700;display:inline-flex;align-items:center;gap:8px"><img src="data:image/png;base64,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" alt="" width="24" height="24" style="height:24px;width:auto;border-radius:4px">0009-0003-2233-5792</a></div>
+</div>
+
+</div>
+</section>
+</main>
+
+<footer class="bottom"><div class="wrap">
+<nav aria-label="Footer sections"><a href="#story">Research</a><a href="#approach">Approach</a><a href="#writing">Engagement</a><a href="#sdg4">SDG 4</a><a href="#background">Background</a><a href="#connect">Connect</a><a href="#top">Back to top</a></nav>
+<div class="fline"><span>Learning analytics × Learning design × Human-centred GenAI</span><span class="sep" aria-hidden="true">|</span><span>Dr Chathura Sooriya-Arachchi · 2026</span></div>
+</div></footer>
+
+<script>
+(function(){
+  /* Iceberg dive */
+  var layers=[
+    {t:'The grade',c:'A mark looks the same whether the student learnt or the AI did the work. Two submissions can share a grade and hide very different competency.',r:'I make the thinking visible with an AI-use log, staged checkpoints and live explanation, so the grade rests on evidence.'},
+    {t:'Competency misalignment',c:'Many assessments reward what AI does well, not the knowledge, skills and dispositions the course is meant to develop.',r:'I decide where AI can lead, where it supports, and where it must not replace student thinking, using Bloom’s levels and competencies.'},
+    {t:'Academic integrity',c:'Detecting AI use is an arms race, and suspicion damages trust between students and teachers.',r:'I design for visibility, not detection: students document their use, and group work carries a contribution record or live verification.'},
+    {t:'Assessment validity',c:'If the marker only sees the final product, does the mark evidence the competency it claims to?',r:'I judge competency from the process as well as the product, with process-based criteria that stay manageable for markers.'},
+    {t:'Invisible learning processes',c:'Prompts, decisions and revisions happen out of sight and never reach the marker or the teacher.',r:'I capture process traces through logs, checkpoints and reflections, and use learning analytics to see how learning happens.'},
+    {t:'Ethical, data and policy gaps',c:'Collecting process data raises questions of consent, fairness and equal access to AI tools.',r:'I build ethics in: consent, equal access to AI tools, and no disciplinary use of process data.'},
+    {t:'Educator capability',c:'Colleagues are asked to redesign assessment for GenAI with little time, guidance or shared practice.',r:'I run workshops and a learning community, and share templates, so teachers can redesign one assessment for their own module.'}
+  ];
+  var d=0,range=document.getElementById('depth'),diver=document.getElementById('diver'),water=document.getElementById('water');
+  var bands=document.querySelectorAll('.band'),svg=document.getElementById('berg');
+  var up=document.getElementById('up'),down=document.getElementById('down');
+  function mix(a,b,t){return Math.round(a+(b-a)*t)}
+  function set(n){
+    d=Math.max(0,Math.min(6,n));
+    range.value=d;
+    var y=d===0?110:150+56.7*(d-1)+28.35;
+    diver.setAttribute('cy',y);
+    var t=d/6;
+    water.setAttribute('fill','rgb('+mix(191,52,t)+','+mix(224,110,t)+','+mix(230,140,t)+')');
+    for(var i=0;i<bands.length;i++){bands[i].classList.toggle('on',Number(bands[i].dataset.i)===d)}
+    document.getElementById('pDepth').textContent=d===0?'AT THE SURFACE':'LAYER '+d+' OF 6';
+    document.getElementById('pTitle').textContent=layers[d].t;
+    document.getElementById('pChallenge').textContent=layers[d].c;
+    document.getElementById('pResponse').textContent=layers[d].r;
+    up.disabled=d===0;down.disabled=d===6;
+  }
+  range.addEventListener('input',function(){set(Number(range.value))});
+  up.addEventListener('click',function(){set(d-1)});
+  down.addEventListener('click',function(){set(d+1)});
+  svg.addEventListener('click',function(e){
+    var r=svg.getBoundingClientRect();
+    var fy=(e.clientY-r.top)/r.height*560;
+    if(fy<150){set(0)}else if(fy<=490){set(Math.min(6,Math.floor((fy-150)/56.7)+1))}
+  });
+  set(0);
+
+
+  /* Student A/B */
+  var a=document.getElementById('btnA'),b=document.getElementById('btnB'),la=document.getElementById('logA'),lb=document.getElementById('logB');
+  function show(w){la.hidden=w!=='A';lb.hidden=w!=='B';a.setAttribute('aria-pressed',String(w==='A'));b.setAttribute('aria-pressed',String(w==='B'))}
+  a.addEventListener('click',function(){show('A')});
+  b.addEventListener('click',function(){show('B')});
+})();
+</script>
+
+<script>
+(function(){
+  var D={
+   '4.3':{t:'Access to quality tertiary and vocational learning',g:'By 2030, equal access for all women and men to affordable, quality technical, vocational and tertiary education, including university.',w:'Assessment is redesigned in a large first-year core module. Equal access to AI tools, consent, and no disciplinary use of process data are written in as ethical principles.',i:'UN indicator 4.3.1: participation rate of youth and adults in formal and non-formal education and training.'},
+   '4.5':{t:'Fairness and inclusion',g:'By 2030, eliminate gender disparities and ensure equal access to all levels of education and training for the vulnerable.',w:'A contribution matrix records each student\u2019s share of group work and separates it from the group grade, so individual effort is visible to markers.',i:'UN indicator 4.5.1: parity indices for female and male, rural and urban, and other groups.'},
+   '4.c':{t:'Teachers who are ready',g:'By 2030, substantially increase the supply of qualified teachers, including through teacher training.',w:'Workshops and a Westminster learning community, GRADE, help teaching academics apply these ideas to their own modules. Educator empowerment and AI literacy are a core part of the framework.',i:'Target 4.c covers teacher supply and training.'},
+   '4.4':{t:'Skills for work and life',g:'By 2030, substantially more youth and adults have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship.',w:'The portfolio assessment starts from a real job posting, with a video pitch and a live LinkedIn and GitHub portfolio. Critical use of GenAI is taught and assessed as a professional skill.',i:'UN indicator 4.4.1: proportion of youth and adults with ICT skills, by type of skill.'}
+  };
+  var tiles=document.querySelectorAll('.sdgtile'),p=document.getElementById('sdgPanel');
+  function show(k){
+    var d=D[k];
+    p.innerHTML='<div style="display:flex;align-items:center;gap:12px"><span class="code">'+k+'</span><span class="t">'+d.t+'</span></div><p style="color:var(--body)"><strong>Target.</strong> '+d.g+'</p><p><strong>In this work.</strong> '+d.w+'</p><p class="ind">'+d.i+'</p>';
+    tiles.forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+  }
+  tiles.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.k)})});
+  show('4.3');
+})();
+</script>
+
+
+<script>
+(function(){
+  var t=document.querySelectorAll('.stile'),p=document.querySelectorAll('.spanel');
+  t.forEach(function(b){b.addEventListener('click',function(){
+    t.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
+    p.forEach(function(x){x.hidden=x.dataset.k!==b.dataset.k});
+  })});
+})();
+</script>
+
+<script>
+(function(){
+  var b=document.querySelectorAll('.route'),p=document.querySelectorAll('.rpanel'),t=document.querySelectorAll('.mount .trail');
+  function set(k){
+    b.forEach(function(x){var on=x.dataset.k===k;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
+    p.forEach(function(x){x.hidden=x.dataset.k!==k});
+    t.forEach(function(x){x.classList.toggle('on',x.dataset.k===k)});
+  }
+  b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.k)})});
+  set('r');
+})();
+</script>
+
+<script>
+(function(){
+  var T=[
+   {h:'The gap',p:'Teachers adopt learning analytics far more often than they act on them. Dashboards are in place, yet what happens in teaching often stays the same. That distance is the adoption to actionability gap.'},
+   {h:'Layer 1 · LA-LD integration',p:'The foundation. A systematic review of 85 empirical studies mapped where learning analytics meets learning design, and found little empirical evidence that analytics are acted on in teaching.',r:'Research question 1 · epistemological foundation'},
+   {h:'Layer 2 · Institutional context',p:'The socio-technical adoption system. A survey of 120 educators identified the barriers and enablers that shape whether they use analytics in their learning design, such as support, recognition, training, time and ease of use.',r:'Research question 2 · survey study'},
+   {h:'Layer 3 · Learner dynamics',p:'Learner-centred design. Personality (Big Five) and learning logs from 72 learners revealed four engagement archetypes: Resource Explorers, Delayed Starters, Consistent Achievers and Collaborative Learners.',r:'Research question 3 · empirical study'},
+   {h:'The crossing · Learning Activity Planner',p:'A toolkit that maps analytics markers to teaching decisions and learning design activity types, so educators can act on what the data shows. It was tested with educators for usefulness and usability.'}
+  ];
+  var tabs=document.querySelectorAll('.btab'),pl=document.querySelectorAll('.bsvg .pl'),pn=document.getElementById('bpanel'),q=document.getElementById('qmark'),cr=document.getElementById('cross'),ch=document.getElementById('crossh');
+  function set(n){
+    var t=T[n];
+    pn.innerHTML='<h4>'+t.h+'</h4><p>'+t.p+'</p>'+(t.r?'<span class="rq">'+t.r+'</span>':'');
+    tabs.forEach(function(b){var on=+b.dataset.n===n;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+    pl.forEach(function(g,i){g.classList.toggle('on',i<Math.min(n,3));g.classList.toggle('act',n>=1&&n<=3&&i===n-1)});
+    q.style.opacity=n===0?1:0;
+    cr.style.opacity=ch.style.opacity=n===4?1:0;
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){set(+b.dataset.n)})});
+  set(0);
+})();
+</script>
+</body>
+</html>
